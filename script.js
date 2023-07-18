@@ -4,22 +4,27 @@ const tils = [[], [], [], [], [], []];
 
 let tileContainer;
 let buttonContainer;
+let boardContainer;
 let table;
 
 function setup(){
     createCanvas(700, 700)
 
+    boardContainer = createDiv();
+    boardContainer.addClass("boardContainer");
+    boardContainer.id("boardContainer");
+    boardContainer.position(90,20)
+
     table = createDiv();
     table.addClass("table")
     table.id("table")
-    table.position(15,15)
-    
+    table.parent("boardContainer")
     createTiles();
     
     buttonContainer = createDiv();
     buttonContainer.addClass("buttonContainer");
     buttonContainer.id("buttonContainer");
-    buttonContainer.position(15, 520)
+    buttonContainer.parent("boardContainer")
 
 
     buttonInitializer();
@@ -136,6 +141,6 @@ const constants = {
     BLACK : "asBlack",
 }
 
-// Prevent options from bieng displayed in the browser by right-clicking
+// Prevent options from bieng displayed in the browser by right-click
 window.addEventListener("contextmenu", e => e.preventDefault());
 

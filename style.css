@@ -41,6 +41,7 @@
     height: 4.3125rem;
     border-radius: 10px;
     transition: linear 60ms;
+    box-sizing: border-box;
 
 }
 
@@ -94,4 +95,11 @@
     box-shadow: 0 0 5px rgba(0,0,0,.05), 1px 1px 3px rgba(0,0,0,.3);
 }
 
+
+.boardContainer{
+    background-color: aqua;
+    /* width: 500px;
+    height: 580px; */
+    
+}
 
