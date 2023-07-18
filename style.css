@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --tile-color-asNormal: rgb(242, 233, 129);
+    --tile-color-asWhite: white;
+    --tile-color-asBlack: rgb(65, 21, 63);
+}
+
+
+.table{
+    background-color: rgb(135, 22, 118);
+    width: 31.25rem;
+    height: 31.25rem;
+    border-radius: 20px;
+    position: relative;
+}
+
+.tileContainer{
+    border-radius: 10px;
+    width: 29rem;
+    height: 29rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.tile{
+    align-items: center;
+    border : 0px ;
+    width: 4.3125rem;
+    height: 4.3125rem;
+    border-radius: 10px;
+    transition: linear 60ms;
+
+}
+
+.asNormal{
+    background-color: var(--tile-color-asNormal);
+}
+
+.asWhite{
+    background-color: var(--tile-color-asWhite);
+}
+
+.asBlack{
+    background-color: var(--tile-color-asBlack);
+}
+
+
+.test{
+    background-color: aqua;
+}
+
