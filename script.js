@@ -13,20 +13,7 @@ function setup(){
     table.id("table")
     table.position(15,15)
     
-    
-    tileContainer = createDiv();        // Tiles container
-    tileContainer.id("tileContainer");
-    tileContainer.addClass("tileContainer");
-    tileContainer.parent("table");
-    
-
-    for(let j=0; j<6; j++){
-        for(let i=0; i<6; i++){
-            let tile = new Tile(i, j); 
-            tils[i][j] = tile; 
-        }
-    }
-    
+    createTiles();
 }
 
 
@@ -34,6 +21,20 @@ function setup(){
 function draw(){
 
     
+}
+
+function createTiles(){
+    tileContainer = createDiv();        // Tiles container
+    tileContainer.addClass("tileContainer");
+    tileContainer.id("tileContainer");
+    tileContainer.parent("table");
+    
+    for(let j=0; j<6; j++){
+        for(let i=0; i<6; i++){
+            let tile = new Tile(i, j); 
+            tils[i][j] = tile; 
+        }
+    }
 }
 
 class Tile{
