@@ -55,7 +55,7 @@ function createTiles(){
     for(let j=0; j<6; j++){
         for(let i=0; i<6; i++){
             let tile = new Tile(i, j); 
-            tils[i][j] = tile; 
+            tils[i][j] = tile;
         }
     }
 }
@@ -94,10 +94,11 @@ class Tile{
     statusCycle = () => {
 
         if(this.status !== constants.WHITE){
-            
-            this.setStatus(constants.WHITE)
+            if(this.squareRule(constants.WHITE))
+                this.setStatus(constants.WHITE);
         }else{
-            this.setStatus(constants.BLACK)
+            if(this.squareRule(constants.BLACK))
+                this.setStatus(constants.BLACK);
         }
     }
 
@@ -113,6 +114,16 @@ class Tile{
             })
             
         })
+    }
+
+    squareRule(nextStatus){
+        const i = this.i;
+        const j = this.j;
+        const TL = tils[i-1]?.[j].status === nextStatus && tils[i][j-1]?.status === nextStatus && tils[i-1][j-1].status === nextStatus;
+        const TR = tils[i+1]?.[j].status === nextStatus && tils[i][j-1]?.status === nextStatus && tils[i+1][j-1].status === nextStatus;
+        const BL = tils[i-1]?.[j].status === nextStatus && tils[i][j+1]?.status === nextStatus && tils[i-1][j+1].status === nextStatus;
+        const BR = tils[i+1]?.[j].status === nextStatus && tils[i][j+1]?.status === nextStatus && tils[i+1][j+1].status === nextStatus;
+        return !(TL || TR || BL || BR);
     }
 }
 
