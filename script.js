@@ -3,6 +3,7 @@
 const tils = [[], [], [], [], [], []];
 
 let tileContainer;
+let buttonContainer;
 let table;
 
 function setup(){
@@ -14,6 +15,14 @@ function setup(){
     table.position(15,15)
     
     createTiles();
+    
+    buttonContainer = createDiv();
+    buttonContainer.addClass("buttonContainer");
+    buttonContainer.id("buttonContainer");
+    buttonContainer.position(15, 520)
+
+
+    buttonInitializer();
 
 }
 
@@ -22,6 +31,19 @@ function setup(){
 function draw(){
 
     
+}
+
+function buttonInitializer(){
+    const reset = createButton("Reset");
+    const undo = createButton("Undo");
+    const redo = createButton("Redo");
+    reset.parent("buttonContainer");
+    reset.addClass("button");
+    undo.parent("buttonContainer");
+    undo.addClass("button");
+    redo.parent("buttonContainer");
+    redo.addClass("button");
+
 }
 
 function createTiles(){

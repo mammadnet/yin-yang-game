@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400&display=swap');
+
+
 *{
     padding: 0;
     margin: 0;
@@ -7,11 +10,12 @@
     --tile-color-asNormal: rgb(242, 233, 129);
     --tile-color-asWhite: white;
     --tile-color-asBlack: rgb(65, 21, 63);
+    --table-color-background : rgb(135, 22, 118);
 }
 
 
 .table{
-    background-color: rgb(135, 22, 118);
+    background-color: var(--table-color-background);
     width: 31.25rem;
     height: 31.25rem;
     border-radius: 20px;
@@ -31,7 +35,7 @@
 
 .tile{
     align-items: center;
-    box-shadow: 0 0 5px rgba(0,0,0,.05), 2px 2px 5px rgba(0,0,0,.1);
+    box-shadow: 0 0 5px rgba(0,0,0,.05), 2px 2px 5px rgba(0,0,0,.3);
     border : 0px ;
     width: 4.3125rem;
     height: 4.3125rem;
@@ -60,4 +64,34 @@
 .test{
     background-color: aqua;
 }
+
+
+.buttonContainer{
+    /* background-color: blueviolet; */
+    width: 500px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    background-color: bisque;
+    box-shadow: 0 0 5px rgba(0,0,0,.05), 2px 2px 5px rgba(0,0,0,.3);
+    width: 90px;
+    height: 50px;
+    border: 0px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: auto;
+    font-family: 'Tektur', cursive;
+    font-size: 0.90rem;
+    transition: linear 40ms;
+}
+
+.button:hover{
+    transform: scale(0.97);
+    box-shadow: 0 0 5px rgba(0,0,0,.05), 1px 1px 3px rgba(0,0,0,.3);
+}
+
 
