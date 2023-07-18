@@ -103,3 +103,6 @@ const constants = {
     BLACK : "asBlack",
 }
 
+// Prevent options from bieng displayed in the browser by right-clicking
+window.addEventListener("contextmenu", e => e.preventDefault());
+
