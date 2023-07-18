@@ -14,6 +14,7 @@ function setup(){
     table.position(15,15)
     
     createTiles();
+
 }
 
 
@@ -44,6 +45,8 @@ class Tile{
         this.j = j;
         this.tile = createButton("");
         this.tileInitializer();
+
+        this.clickListener();
     }
 
 
@@ -64,13 +67,38 @@ class Tile{
         this.tile.removeClass(constants.WHITE)
         this.tile.addClass(status)
         this.status = status;
-    }    
+    }
+    
+    statusCycle = () => {
+
+        if(this.status !== constants.WHITE){
+            
+            this.setStatus(constants.WHITE)
+        }else{
+            this.setStatus(constants.BLACK)
+        }
+    }
+
+    clickListener(){
+
+        this.tile.mousePressed(()=>{
+            this.tile.mouseReleased(()=>{
+                if(mouseButton === LEFT)
+                    this.statusCycle();
+
+                if(mouseButton === RIGHT)
+                    this.setStatus(constants.NORMAL);
+            })
+            
+        })
+    }
 }
 
 const constants = {
     TILE_SIZE : 69,             // Size of tiles, width===hight
     DISTANCE : 10,              // The distance between each tile
-    NORMAL : "asNormal",
+    //Different stauses and same names with style classes:
+    NORMAL : "asNormal",        
     WHITE : "asWhite",
     BLACK : "asBlack",
 }
