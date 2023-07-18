@@ -38,6 +38,7 @@ function createTiles(){
 }
 
 class Tile{
+
     constructor(i, j){
         this.i = i;
         this.j = j;
@@ -47,20 +48,30 @@ class Tile{
 
 
     tileInitializer(){                         // Initialize tiles in beginning of game
-        this.tile.position(this.j*(69 + 10),this.i*(69 + 10));
+
+        this.tile.position(this.j*(constants.TILE_SIZE + constants.DISTANCE),
+                            this.i*(constants.TILE_SIZE + constants.DISTANCE));
 
         this.tile.addClass("tile");
         this.tile.parent("tileContainer")
-        this.tile.addClass('asNormal');
-        this.status = 'asNormal';
+        this.tile.addClass(constants.NORMAL);
+        this.status = constants.NORMAL;
     }
-
+    
     setStatus(status){
-        this.tile.removeClass('asNormal')
-        this.tile.removeClass("asBlack")
-        this.tile.removeClass("asWhite")
+        this.tile.removeClass(constants.NORMAL)
+        this.tile.removeClass(constants.BLACK)
+        this.tile.removeClass(constants.WHITE)
         this.tile.addClass(status)
         this.status = status;
-    }
+    }    
+}
+
+const constants = {
+    TILE_SIZE : 69,             // Size of tiles, width===hight
+    DISTANCE : 10,              // The distance between each tile
+    NORMAL : "asNormal",
+    WHITE : "asWhite",
+    BLACK : "asBlack",
 }
 
