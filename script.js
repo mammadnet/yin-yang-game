@@ -93,6 +93,7 @@ class Tile{
         this.tile.removeClass(constants.BLACK)
         this.tile.removeClass(constants.WHITE)
         this.tile.addClass(status)
+        this.counter(this.status, status)
         this.status = status;
     }
     
@@ -130,6 +131,11 @@ class Tile{
         const BR = tils[i+1]?.[j].status === nextStatus && tils[i][j+1]?.status === nextStatus && tils[i+1][j+1].status === nextStatus;
         return !(TL || TR || BL || BR);
     }
+
+    counter(previos, next){
+        number[previos]--;
+        number[next]++;
+    }
 }
 
 const constants = {
@@ -139,6 +145,12 @@ const constants = {
     NORMAL : "asNormal",        
     WHITE : "asWhite",
     BLACK : "asBlack",
+}
+
+const number={
+    [constants.NORMAL]: 36,
+    [constants.WHITE] : 0,
+    [constants.BLACK] : 0
 }
 
 // Prevent options from bieng displayed in the browser by right-click
