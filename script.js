@@ -89,9 +89,7 @@ class Tile{
     }
     
     setStatus(status){
-        this.tile.removeClass(constants.NORMAL)
-        this.tile.removeClass(constants.BLACK)
-        this.tile.removeClass(constants.WHITE)
+        this.tile.removeClass(this.status)
         this.tile.addClass(status)
         this.counter(this.status, status)
         this.status = status;
