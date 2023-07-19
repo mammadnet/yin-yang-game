@@ -44,6 +44,8 @@ function buttonInitializer(){
     const redo = createButton("Redo");
     reset.parent("buttonContainer");
     reset.addClass("button");
+    reset.mouseClicked(resetGame);
+
     undo.parent("buttonContainer");
     undo.addClass("button");
     redo.parent("buttonContainer");
@@ -61,6 +63,14 @@ function createTiles(){
         for(let i=0; i<6; i++){
             let tile = new Tile(i, j); 
             tils[i][j] = tile;
+        }
+    }
+}
+
+function resetGame(){
+    for(const arr of tils){
+        for(const tile of arr){
+            tile.reset();
         }
     }
 }
@@ -133,6 +143,10 @@ class Tile{
     counter(previos, next){
         number[previos]--;
         number[next]++;
+    }
+
+    reset(){
+        this.setStatus(constants.NORMAL)
     }
 }
 
