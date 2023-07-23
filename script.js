@@ -108,10 +108,8 @@ class Tile{
     statusCycle = () => {
 
         if(this.status !== constants.WHITE){
-            if(this.squareRule(constants.WHITE))
                 this.setStatus(constants.WHITE);
         }else{
-            if(this.squareRule(constants.BLACK))
                 this.setStatus(constants.BLACK);
         }
     }
@@ -130,13 +128,13 @@ class Tile{
         })
     }
 
-    squareRule(nextStatus){
+    squareRule(){
         const i = this.i;
         const j = this.j;
-        const TL = tils[i-1]?.[j].status === nextStatus && tils[i][j-1]?.status === nextStatus && tils[i-1][j-1].status === nextStatus;
-        const TR = tils[i+1]?.[j].status === nextStatus && tils[i][j-1]?.status === nextStatus && tils[i+1][j-1].status === nextStatus;
-        const BL = tils[i-1]?.[j].status === nextStatus && tils[i][j+1]?.status === nextStatus && tils[i-1][j+1].status === nextStatus;
-        const BR = tils[i+1]?.[j].status === nextStatus && tils[i][j+1]?.status === nextStatus && tils[i+1][j+1].status === nextStatus;
+        const TL = tils[i-1]?.[j].status === this.status && tils[i][j-1]?.status === this.status && tils[i-1][j-1].status === this.status;
+        const TR = tils[i+1]?.[j].status === this.status && tils[i][j-1]?.status === this.status && tils[i+1][j-1].status === this.status;
+        const BL = tils[i-1]?.[j].status === this.status && tils[i][j+1]?.status === this.status && tils[i-1][j+1].status === this.status;
+        const BR = tils[i+1]?.[j].status === this.status && tils[i][j+1]?.status === this.status && tils[i+1][j+1].status === this.status;
         return !(TL || TR || BL || BR);
     }
 
