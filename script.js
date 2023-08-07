@@ -81,6 +81,7 @@ class Tile{
         this.i = i;
         this.j = j;
         this.tile = createButton("");
+        this.status = {};
         this.tileInitializer();
 
         this.clickListener();
@@ -94,20 +95,23 @@ class Tile{
 
         this.tile.addClass("tile");
         this.tile.parent("tileContainer")
-        this.tile.addClass(constants.NORMAL);
-        this.status = constants.NORMAL;
+        this.tile.addClass(constants.NORMAL.style);
+        this.status.style = constants.NORMAL.style;
+        this.status.num   = constants.NORMAL.num;
     }
     
     setStatus(status){
-        this.tile.removeClass(this.status)
-        this.tile.addClass(status)
+        this.tile.removeClass(this.status.style)
+        this.tile.addClass(status.style)
         this.counter(this.status, status)
-        this.status = status;
+        this.status.style = status.style;
+        this.status.num   = status.num;
+
     }
     
     statusCycle = () => {
 
-        if(this.status !== constants.WHITE){
+        if(this.status.num !== constants.WHITE.num){
                 this.setStatus(constants.WHITE);
         }else{
                 this.setStatus(constants.BLACK);
@@ -139,8 +143,8 @@ class Tile{
     }
 
     counter(previos, next){
-        number[previos]--;
-        number[next]++;
+        number[previos.num]--;
+        number[next.num]++;
     }
 
     reset(){
@@ -151,16 +155,19 @@ class Tile{
 const constants = {
     TILE_SIZE : 69,             // Size of tiles, width===hight
     DISTANCE : 10,              // The distance between each tile
-    //Different stauses and same names with style classes:
-    NORMAL : "asNormal",        
-    WHITE : "asWhite",
-    BLACK : "asBlack",
+
+    // {stylesheet class name, status number indicator}:
+    NORMAL : {style: "asNormal", num: 0},        // 0 --> NORMAL indicator
+    WHITE  : {style: "asWhite" , num: 1},        // 1 --> WHITE indicator
+    BLACK  : {style: "asBlack" , num: 2},        // 2 --> BLACK indicator
+
 }
 
+// Number of each color in table
 const number={
-    [constants.NORMAL]: 36,
-    [constants.WHITE] : 0,
-    [constants.BLACK] : 0
+    [constants.NORMAL.num] : 36,
+    [constants.WHITE.num ] : 0 ,
+    [constants.BLACK.num ] : 0
 }
 
 // Prevent options from bieng displayed in the browser by right-click
