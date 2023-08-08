@@ -95,9 +95,7 @@ class Tile{
 
         this.tile.addClass("tile");
         this.tile.parent("tileContainer")
-        this.tile.addClass(constants.NORMAL.style);
-        this.status.style = constants.NORMAL.style;
-        this.status.num   = constants.NORMAL.num;
+        this.setStatus(constants.NORMAL)
     }
     
     setStatus(status){
@@ -165,9 +163,9 @@ const constants = {
 
 // Number of each color in table
 const number={
-    [constants.NORMAL.num] : 36,
+    [constants.NORMAL.num] : 0 ,        // The number of normal tiles at the beginning of the game is 36
     [constants.WHITE.num ] : 0 ,
-    [constants.BLACK.num ] : 0
+    [constants.BLACK.num ] : 0 ,
 }
 
 // Prevent options from bieng displayed in the browser by right-click
