@@ -1,6 +1,7 @@
 'use strict'
 
-const tils = [[], [], [], [], [], []];
+const logicTile = [[], [], [], [], [], []];                 // To store number indecator of each status (color)
+const tils      = [[], [], [], [], [], []];                 // To store graphic objects
 
 let tileContainer;
 let buttonContainer;
@@ -104,6 +105,7 @@ class Tile{
         this.counter(this.status, status)
         this.status.style = status.style;
         this.status.num   = status.num;
+        logicTile[this.i][this.j] = status.num;             // Change number indicators 
 
     }
     
