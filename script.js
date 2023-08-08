@@ -141,7 +141,7 @@ class Tile{
     }
 
     counter(previos, next){
-        number[previos.num]--;
+        if(previos.num !== undefined) number[previos.num]--;
         number[next.num]++;
     }
 
