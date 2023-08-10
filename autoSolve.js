@@ -91,3 +91,8 @@ function counter(tiles){
 
     return numbers;
 }
+
+function validation(tiles){
+    return squareRule(tiles) && everyColorContinuity(tiles);
+}
+
