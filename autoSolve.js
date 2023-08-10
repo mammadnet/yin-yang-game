@@ -75,8 +75,19 @@ function findFirst(tiles, color){
     return undefined;
 }
 
-function everyColorContinuity(tiles, numbers){
+function everyColorContinuity(tiles, numbers = undefined){
+    numbers ??= counter(tiles);
     const whiteContinuity = continuity(tiles, numbers[1], 1);
     const blackContinuity = continuity(tiles, numbers[2], 2);
     return whiteContinuity && blackContinuity;
+}
+
+function counter(tiles){
+    const numbers = {1: 0, 2: 0}
+
+    tiles.forEach(e => {
+        e.forEach(t =>{if(t>0) numbers[t]++})
+    });
+
+    return numbers;
 }
