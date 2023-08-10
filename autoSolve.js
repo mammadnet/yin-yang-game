@@ -72,3 +72,9 @@ function findFirst(tiles, color){
     }
     return undefined;
 }
+
+function everyColorContinuity(tiles, numbers){
+    const whiteContinuity = continuity(tiles, numbers[1], 1);
+    const blackContinuity = continuity(tiles, numbers[2], 2);
+    return whiteContinuity && blackContinuity;
+}
